@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GraphicsTest.hpp"
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
@@ -20,6 +21,7 @@ class MainWindow : public QMainWindow {
         QLabel *title;
         QPushButton *button;
         QLabel *undertext;
+        GraphicsTest *graphicstest;
         
         int clickCount;
 };

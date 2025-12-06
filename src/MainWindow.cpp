@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) 
     : QMainWindow(parent), clickCount(0) {
@@ -12,12 +13,18 @@ void MainWindow::setupUI() {
     setWindowTitle("PoC Rythmopen");
     resize(800, 600);
 
-    QWidget *widget = new QWidget(this);
-    setCentralWidget(widget);
+    QWidget *layout_widget_2 = new QWidget(this);
+    setCentralWidget(layout_widget_2);
 
-    QVBoxLayout *layout = new QVBoxLayout(widget);
+    QHBoxLayout *layout2 = new QHBoxLayout(layout_widget_2);
+    layout2->setAlignment(Qt::AlignCenter);
+    layout2->setContentsMargins(50, 50, 50, 50);
+
+    QWidget *layout_widget = new QWidget(this);
+    layout2->addWidget(layout_widget);
+    
+    QVBoxLayout *layout = new QVBoxLayout(layout_widget);
     layout->setAlignment(Qt::AlignCenter);
-    layout->setContentsMargins(50, 50, 50, 50);
 
     title = new QLabel("Proof of concept", this);
     title->setAlignment(Qt::AlignCenter);
@@ -50,6 +57,9 @@ void MainWindow::setupUI() {
     QFont counterFont = undertext->font();
     counterFont.setPointSize(14);
     undertext->setFont(counterFont);
+
+    graphicstest = new GraphicsTest(this);
+    layout2->addWidget(graphicstest);
 
     layout->addWidget(title);
     layout->addSpacing(30);
