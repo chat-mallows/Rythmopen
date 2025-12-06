@@ -1,3 +1,11 @@
+# IDE
+.vscode
+
+# Development
+build
+.direnv
+.envrc
+
 # C++ objects and libs
 *.slo
 *.lo
